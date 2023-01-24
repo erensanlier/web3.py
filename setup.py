@@ -79,7 +79,6 @@ setup(
         "websockets>=7.0.0,<8.0.0",
         "pypiwin32>=223;platform_system=='Windows'",
     ],
-    setup_requires=['setuptools-markdown'],
     python_requires='>=3.6,<4',
     extras_require=extras_require,
     py_modules=['web3', 'ens'],
