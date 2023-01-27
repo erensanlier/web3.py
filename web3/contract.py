@@ -142,9 +142,12 @@ class ContractFunctions:
                 "Are you sure you provided the correct contract abi?"
             )
         elif function_name not in self.__dict__['_functions']:
+            functions_available = ', '.join([fn['name'] for fn in self.__dict__['_functions']])
             raise MismatchedABI(
-                "The function '{}' was not found in this contract's abi. ".format(function_name),
-                "Are you sure you provided the correct contract abi?"
+                "The function '{}' was not found in this contract's ABI. ".format(function_name),
+                "Here is a list of all of the function names found: ",
+                "{}. ".format(functions_available),
+                "Did you mean to call one of those functions?"
             )
         else:
             return super().__getattribute__(function_name)
